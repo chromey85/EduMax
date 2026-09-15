@@ -1,0 +1,48 @@
+/* Setting the global font colour */
+* {
+    color: #333333;
+}
+
+/* any styling after this line will overwrite the global styling */
+/* Changing the background colour of the page */
+body {
+    background-color: #ffffda;
+}
+
+.header {
+    background-color: #3c9fc3;
+    color: white;
+}
+
+/* h1.header {
+    font-size: 9vw;
+}
+
+/* Removed the font colour styling and replaced with making the font bold and adding a bit more space under the headings */
+h2,
+h3,
+h4 {
+    font-weight: bold;
+    padding-bottom: 1em;
+}
+
+/* added more space between the lines and at the bottom of the paragraph */
+p {
+    line-height: 2;
+    margin-bottom: 2.5em;
+}
+
+form.register {
+    border: 1px solid #3c9fc3;
+    background-color: lightgrey;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+/* increased the size of the image */
+.img {
+    width: 60px;
+    height: 60px;
+}
+
+/* Removed .img:hover as no longer needed */
