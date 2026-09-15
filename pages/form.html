@@ -34,30 +34,29 @@
       </div>
     </header>
     <!-- Main Area -->
-    <main class="my-4">
-      <div class="row">
+    <main>
+      <div class="row g-0">
         <!-- Sidebar -->
-        <div class="col-md-3 mb-4">
-          <div class="bg-light p3 border rounded">
-            <h4 class="d-flex justify-content-around">Admin Menu</h4>
+        <div class="col-md-3">
+          <div class="bg-light p-3 border">
+            <!--             <h4 class="d-flex justify-content-around">Admin Menu</h4>
+ -->
             <ul class="nav flex-column">
-              <li class="nav-item mb-2"><a class="nav-link text-dark pb-2" href="./placeholder.html">Dashboard</a>
-              </li>
-              <li class="nav-item mb-2"><a class="nav-link text-dark pb-2" href="./placeholder.html">Students</a></li>
-              <li class="nav-item mb-2"><a class="nav-link text-dark pb-2" href="./placeholder.html">Module
-                  Catalogue</a></li>
-              <li class="nav-item mb-2"><a class="nav-link text-dark pb-2" href="./placeholder.html">Learning Events</a>
-              </li>
+              <li class="nav-item mb-2"><a class="nav-link text-dark pb-2" href="#">Dashboard</a></li>
+              <li class="nav-item mb-2"><a class="nav-link text-dark pb-2" href="#">Students</a></li>
+              <li class="nav-item mb-2"><a class="nav-link text-dark pb-2" href="#">Module Catalogue</a></li>
+              <li class="nav-item mb-2"><a class="nav-link text-dark pb-2" href="#">Learning Events</a></li>
               <li class="nav-item mb-2"><a class="nav-link text-primary fw-bold pb-2 active" href="#">Announcements</a>
               </li>
-              <li class="nav-item"><a class="nav-link text-dark pb-2" href="./placeholder.html">Security</a>
+              <li class="nav-item"><a class="nav-link text-dark pb-2" href="#">Security</a></li>
             </ul>
           </div>
         </div>
 
-        <!-- Main Form Area-->
+        <!-- Main Form Area (Unified Border Card) -->
         <div class="col-md-9">
-          <div class="p-4 border">
+          <div class="p-4 border bg-white">
+
             <!-- Heading and Top-Right Submit Button Row -->
             <div class="row align-items-center mb-1">
               <div class="col">
@@ -67,26 +66,90 @@
                 <button type="submit" form="announcementForm" class="btn btn-success px-4">Add Announcement</button>
               </div>
             </div>
+
             <!-- Breadcrumbs -->
-            <div class="row mt-1">
+            <div class="row mt-1 mb-4">
               <div class="col">
                 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                   <ol class="breadcrumb mb-0">
-                    <li class="breadcrumb-item"><a href="./placeholder.html">Home</a></li>
-                    <li class="breadcrumb-item"><a href="./placeholder.html">Announcements</a></li>
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Announcements</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Add Announcement</li>
                   </ol>
                 </nav>
               </div>
             </div>
+
+            <!-- The Form -->
+            <form id="announcementForm" action="https://students.open.ac.uk/mct/tm252/reflect/reflect.php" method="POST"
+              enctype="multipart/form-data">
+
+              <!-- Hidden item_ID field -->
+              <input type="hidden" name="item_ID" value="30001000-5000-654321fedcba">
+
+              <!-- Subject Line -->
+              <div class="mb-3">
+                <label for="subject" class="form-label fw-bold">Subject line (max 5 words)</label>
+                <input type="text" class="form-control" id="subject" name="subject" value="Exams revision timetable"
+                  required>
+              </div>
+
+              <!-- Content -->
+              <div class="mb-3">
+                <label for="content" class="form-label fw-bold">Content (plain text)</label>
+                <textarea class="form-control" id="content" name="content" rows="4"
+                  required>Please review the attached revision timetable ahead of the upcoming exams.</textarea>
+              </div>
+
+              <!-- Sender's Name -->
+              <div class="mb-3">
+                <label for="senderName" class="form-label fw-bold">Sender’s name</label>
+                <input type="text" class="form-control" id="senderName" name="senderName" value="Safa Smith" required>
+              </div>
+
+              <!-- Sender's Role -->
+              <div class="mb-3">
+                <label for="senderRole" class="form-label fw-bold">Sender’s role</label>
+                <select class="form-select" id="senderRole" name="senderRole" required>
+                  <option value="module_lead" selected>Module lead</option>
+                  <option value="administrator">Administrator</option>
+                  <option value="module_assistant">Module assistant</option>
+                </select>
+              </div>
+
+              <!-- Attachment -->
+              <div class="mb-3">
+                <label for="attachment" class="form-label fw-bold">Attachment (optional)</label>
+                <input type="file" class="form-control" id="attachment" name="attachment">
+              </div>
+
+              <!-- Date and Time -->
+              <div class="mb-3">
+                <label for="sendDateTime" class="form-label fw-bold">Date and time that the email should be sent</label>
+                <input type="text" class="form-control" id="sendDateTime" name="sendDateTime" value="01/10/2026, 09:00"
+                  required>
+              </div>
+
+              <!-- Priority -->
+              <div class="mb-3">
+                <label for="priority" class="form-label fw-bold">Priority</label>
+                <select class="form-select" id="priority" name="priority" required>
+                  <option value="High" selected>High</option>
+                  <option value="Normal">Normal</option>
+                  <option value="Low">Low</option>
+                </select>
+              </div>
+
+            </form>
+
           </div>
         </div>
 
       </div>
     </main>
 
-    <footer>
-      <div class="row mt-0 mt-4 border-top pt-3">
+    <footer class="px-4">
+      <div class="row mt-4 border-top pt-3">
         <div class="col-md-6">
           <!-- Copyright on the left -->
           <p class="mb-0">&copy; 2026 EduMax. All rights reserved</p>
@@ -94,10 +157,11 @@
         <div class="col-md-6">
           <!-- Navigation on the right -->
           <nav class="nav justify-content-md-end">
-            <a class="nav-link" href="./placeholder.html">Privacy Policy</a>
-            <a class="nav-link" href="./placeholder.html">Terms of Use</a>
+            <a class="nav-link" href="#">Privacy Policy</a>
+            <a class="nav-link" href="#">Terms of Use</a>
           </nav>
         </div>
+      </div>
     </footer>
   </div>
 
